@@ -5,6 +5,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -192,6 +193,8 @@ public class WeatherActivity extends AppCompatActivity {
         String updateTime = weather.basic.update.updateTime.split(" ")[1]; //按24小时计时的时间
         String degree = weather.now.temperature + "°C";
         String weatherInfo = weather.now.more.info;
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
         // 将数据显示到对应控件上
         titleCity.setText(cityName);
         titleUpdateTime.setText(updateTime);
