@@ -70,8 +70,8 @@ public class AutoUpdateService extends Service {
                     final Weather weather = Utility.handleWeatherResponse(responseText);
                     if (weather != null && "ok".equals(weather.status)) {
                         //缓存有效的weather对象(实际上缓存的是字符串)
-                        SharedPreferences.Editor editor = PreferenceManager
-                                .getDefaultSharedPreferences(AutoUpdateService.this).edit();
+                        SharedPreferences.Editor editor = PreferenceManager.
+                                getDefaultSharedPreferences(AutoUpdateService.this).edit();
                         editor.putString("weather", responseText);
                         editor.apply();
                     }
